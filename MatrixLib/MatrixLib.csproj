@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{04873D46-400F-4BFB-8EE0-18105389B3C6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>MatrixLib</RootNamespace>
+    <AssemblyName>MatrixLib</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto">
+      <HintPath>..\packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="MimeKit">
+      <HintPath>..\packages\MimeKit.2.5.1\lib\net47\MimeKit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="Sodium">
+      <HintPath>..\packages\libsodium-net.0.10.0\lib\Net40\Sodium.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Matrix.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UrlParameter.cs" />
+    <Compile Include="MatrixException.cs" />
+    <Compile Include="Events.cs" />
+    <Compile Include="NativeMethods.cs" />
+    <Compile Include="OlmAccount.cs" />
+    <Compile Include="PinnedData.cs" />
+    <Compile Include="RandomData.cs" />
+    <Compile Include="DeviceKey.cs" />
+    <Compile Include="JsonCanon\JsonCanonicalizer.cs" />
+    <Compile Include="JsonCanon\NumberDiyFp.cs" />
+    <Compile Include="JsonCanon\NumberDToA.cs" />
+    <Compile Include="JsonCanon\NumberFastDToA.cs" />
+    <Compile Include="JsonCanon\NumberFastDToABuilder.cs" />
+    <Compile Include="JsonCanon\NumberDoubleHelper.cs" />
+    <Compile Include="JsonCanon\NumberToJson.cs" />
+    <Compile Include="JsonCanon\NumberCachedPowers.cs" />
+    <Compile Include="OlmUtility.cs" />
+    <Compile Include="OlmSession.cs" />
+    <Compile Include="Bytes.cs" />
+    <Compile Include="OlmOutboundSession.cs" />
+    <Compile Include="OlmInboundSession.cs" />
+    <Compile Include="Test.cs" />
+    <Compile Include="IStorage.cs" />
+    <Compile Include="RoomState.cs" />
+    <Compile Include="Model.cs" />
+    <Compile Include="VolatileStorage.cs" />
+    <Compile Include="JObjectExtensions.cs" />
+    <Compile Include="Hkdf.cs" />
+    <Compile Include="Verification.cs" />
+    <Compile Include="Mac.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="JsonCanon\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Baseclass.Contrib.Nuget.Output.2.4.3\build\Baseclass.Contrib.Nuget.Output.targets" Condition="Exists('..\packages\Baseclass.Contrib.Nuget.Output.2.4.3\build\Baseclass.Contrib.Nuget.Output.targets')" />
+</Project>
